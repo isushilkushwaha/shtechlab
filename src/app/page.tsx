@@ -1,7 +1,13 @@
-import Hero from "@/components/Hero";
-import Services from "@/components/Services";
-import CTA from "@/components/CTA";
+
 import type { Metadata } from "next";
+import Hero from "@/components/sections/Hero";
+import Services from "@/components/sections/Services";
+import WhyChooseUs from "@/components/sections/WhyChooseUs";
+import Technologies from "@/components/sections/Technologies";
+//import Testimonials from "@/components/sections/Testimonials";
+//import FAQ from "@/components/sections/FAQ";
+import CTA from "@/components/sections/CTA";
+//import ContactSection from "@/components/sections/ContactSection";
 
 export const metadata: Metadata = {
   title: "Home | SH Tech Lab",
@@ -11,10 +17,21 @@ export const metadata: Metadata = {
 
 export default function HomePage() {
   return (
-    <>
+    <main className="overflow-hidden">
+      
+      
       <Hero />
-      <Services />
+       <Services />
+     
+      <WhyChooseUs />
+      <Technologies />
       <CTA />
-    </>
+        {/*
+      <Testimonials />
+      <FAQ />
+      <CTA />
+      <ContactSection /> */}
+
+    </main>
   );
 }

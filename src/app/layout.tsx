@@ -1,8 +1,20 @@
 import "./globals.css";
 import type { Metadata } from "next";
+import { Inter, Space_Grotesk } from "next/font/google";
+
 import { defaultSEO } from "@/lib/seo";
-import Header from "@/components/Header";
-import Footer from "@/components/Footer";
+import Header from "@/components/layout/Navbar";
+import Footer from "@/components/layout/Footer";
+
+const inter = Inter({
+  subsets: ["latin"],
+  variable: "--font-body",
+});
+
+const spaceGrotesk = Space_Grotesk({
+  subsets: ["latin"],
+  variable: "--font-heading",
+});
 
 export const metadata: Metadata = {
   title: defaultSEO.title,
@@ -41,7 +53,9 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className="bg-white text-black">
+      <body
+        className={`${inter.variable} ${spaceGrotesk.variable} bg-white text-black antialiased`}
+      >
         <Header />
         <main>{children}</main>
         <Footer />
