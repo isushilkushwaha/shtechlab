@@ -1,6 +1,7 @@
 import "./globals.css";
 import type { Metadata } from "next";
 import { Inter, Space_Grotesk } from "next/font/google";
+import { Toaster } from "sonner";
 
 import { defaultSEO } from "@/lib/seo";
 import Header from "@/components/layout/Navbar";
@@ -57,6 +58,7 @@ export default function RootLayout({
         className={`${inter.variable} ${spaceGrotesk.variable} bg-white text-black antialiased`}
       >
         <Header />
+        <Toaster richColors position="top-right" />
         <main>{children}</main>
         <Footer />
       </body>
