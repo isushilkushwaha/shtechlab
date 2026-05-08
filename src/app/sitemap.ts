@@ -4,7 +4,7 @@ import { MetadataRoute } from "next";
 import { getAllBlogs } from "@/lib/markdown";
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
-  const baseUrl = "https://shtechlab.com";
+  const baseUrl = "https://shtechlab.in";
 
   /*
    |--------------------------------------------------------------------------
