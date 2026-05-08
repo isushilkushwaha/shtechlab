@@ -1,16 +1,11 @@
-export default function FAQPage() {
-  return (
-    <main className="min-h-screen py-20">
-      <div className="container mx-auto px-4">
-        <h1 className="text-4xl font-bold mb-4">
-          Frequently Asked Questions
-        </h1>
+import FAQ from "@/components/sections/FAQ";
 
-        <p className="text-zinc-600">
-          Find answers about our website development,
-          redesign, maintenance, SEO, and app development services.
-        </p>
-      </div>
-    </main>
-  );
+export const metadata = {
+  title: "FAQ | SH Tech Lab",
+  description:
+    "Frequently asked questions about website development, SEO, redesign, maintenance, and app development services.",
+};
+
+export default function FAQPage() {
+  return <FAQ />;
 }
