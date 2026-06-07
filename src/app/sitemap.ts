@@ -1,7 +1,8 @@
+
+
 import { MetadataRoute } from "next";
 
-// Import your blog fetching function
-import { getAllBlogs } from "@/lib/markdown";
+import { getBlogPosts } from "@/lib/markdown";
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const baseUrl = "https://shtechlab.in";
@@ -21,14 +22,14 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     "/contact",
     "/faq",
 
+    // Blog
+    "/blog",
+
     // Service Pages
     "/services/website-development",
     "/services/website-redesign",
     "/services/website-maintenance",
     "/services/app-development",
-
-    // Blog
-    "/blog",
 
     // Country Pages
     "/india",
@@ -41,12 +42,16 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     "/uae/services",
   ];
 
-  const staticRoutes = routes.map((route) => ({
-    url: `${baseUrl}${route}`,
-    lastModified: new Date(),
-    changeFrequency: "weekly" as const,
-    priority: route === "" ? 1 : 0.8,
-  }));
+  const staticRoutes: MetadataRoute.Sitemap =
+    routes.map((route) => ({
+      url: `${baseUrl}${route}`,
+
+      lastModified: new Date(),
+
+      changeFrequency: "weekly",
+
+      priority: route === "" ? 1 : 0.8,
+    }));
 
   /*
    |--------------------------------------------------------------------------
@@ -54,17 +59,20 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
    |--------------------------------------------------------------------------
    */
 
-  const blogs = getAllBlogs();
+  const posts = await getBlogPosts();
 
-  const blogRoutes = blogs.map((blog: any) => ({
-    url: `${baseUrl}/blog/${blog.slug}`,
-    lastModified: blog.date
-      ? new Date(blog.date)
-      : new Date(),
+  const blogRoutes: MetadataRoute.Sitemap =
+    posts.map((post) => ({
+      url: `${baseUrl}/blog/${post.slug}`,
 
-    changeFrequency: "monthly" as const,
-    priority: 0.7,
-  }));
+      lastModified: post.date
+        ? new Date(post.date)
+        : new Date(),
+
+      changeFrequency: "monthly",
+
+      priority: 0.7,
+    }));
 
   /*
    |--------------------------------------------------------------------------
@@ -72,5 +80,8 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
    |--------------------------------------------------------------------------
    */
 
-  return [...staticRoutes, ...blogRoutes];
+  return [
+    ...staticRoutes,
+    ...blogRoutes,
+  ];
 }

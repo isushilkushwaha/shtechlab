@@ -8,6 +8,7 @@ import Container from "./Container";
 const navItems = [
   { name: "Home", href: "/" },
   { name: "About", href: "/about" },
+  { name: "Blogs", href: "/blog" },
   { name: "Services", href: "/services" },
   { name: "Contact", href: "/contact" },
 ];
