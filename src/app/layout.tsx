@@ -28,7 +28,7 @@ export const metadata: Metadata = {
     title: defaultSEO.title,
     description: defaultSEO.description,
     url: "https://shtechlab.in",
-    siteName: "SH Tech Lab",
+    siteName: defaultSEO.siteName,
     images: [
       {
         url: "/og.png",

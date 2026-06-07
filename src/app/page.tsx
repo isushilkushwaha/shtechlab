@@ -10,9 +10,9 @@ import CTA from "@/components/sections/CTA";
 //import ContactSection from "@/components/sections/ContactSection";
 
 export const metadata: Metadata = {
-  title: "Home | SH Tech Lab",
+  title: "SH Tech Lab | Building Your Digital Tomorrow",
   description:
-    "Get a professional business website in just 5 days. Affordable and high-quality development.",
+    "SH Tech Lab is your trusted partner for website development, SEO, and digital business solutions. We help you build a strong online presence and grow your business in the digital age.",
 };
 
 export default function HomePage() {

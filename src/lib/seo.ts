@@ -1,11 +1,12 @@
 export const defaultSEO = {
   title: {
-    default: "SH Tech Lab ",
+    default: "SH Tech Lab | Building Your Digital Tomorrow",
     template: "%s | SH Tech Lab",
   },
+  siteName: "SH Tech Lab",
 
   description:
-    "SH Tech Lab is a modern web development company helping businesses grow online with fast, SEO-friendly, mobile-responsive, and high-converting websites built using Next.js, React, TypeScript, Tailwind CSS, and Firebase.",
+    "SH Tech Lab is your trusted partner for website development, SEO, and digital business solutions. We help you build a strong online presence and grow your business in the digital age.",
 
   keywords: [
     // Brand

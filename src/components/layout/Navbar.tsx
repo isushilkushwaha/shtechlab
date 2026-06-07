@@ -19,7 +19,7 @@ export default function Navbar() {
   return (
     <header className="sticky top-0 z-50 border-b border-zinc-200 bg-white/90 backdrop-blur-md">
       <Container>
-        <div className="flex h-12 items-center justify-between">
+        <div className="flex h-14 items-center justify-between">
           
           {/* Company Name */}
           <Link href="/" className="text-lg font-bold tracking-tight">
