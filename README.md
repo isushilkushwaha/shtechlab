@@ -1,137 +1,194 @@
+# SH Tech Lab Website
 
-# 🚀 SH Tech Lab – Next.js Project
+Welcome to the official SH Tech Lab website project.
 
-This is a modern web application built using Next.js, bootstrapped with create-next-app.
-It is designed with scalability, performance, and SEO in mind.
-
----
-
-## 📌 Tech Stack
-
-* ⚡ Next.js (App Router)
-* 🎨 Tailwind CSS
-* 🧩 shadcn/ui
-* 🔷 TypeScript
-* 📦 Package Manager: `pnpm`
+This project powers the online presence of SH Tech Lab and is built with a modern technology stack focused on performance, scalability, SEO, and maintainability. The goal is to deliver a fast, professional, and user-friendly experience for businesses looking for web development and digital solutions.
 
 ---
 
-## 📂 Project Structure
+## About SH Tech Lab
 
-```
+SH Tech Lab is a web development and digital solutions company focused on helping businesses establish and grow their online presence.
+
+Our services include:
+
+* Custom Website Development
+* Website Redesign & Modernization
+* Website Maintenance & Support
+* Web Application Development
+* SEO-Friendly Business Websites
+* Digital Growth Solutions
+
+We focus on creating fast, responsive, and scalable websites that help businesses build credibility and generate leads online.
+
+---
+
+## Technology Stack
+
+This project is built using:
+
+* Next.js (App Router)
+* React
+* TypeScript
+* Tailwind CSS
+* shadcn/ui
+* Firebase
+* pnpm
+
+---
+
+## Project Structure
+
+```text
+src/
+
 ├── app/
-│   ├── layout.tsx     # Root layout (SEO optimized)
-│   ├── page.tsx       # Home page
-│   ├── sitemap.ts     # SEO sitemap
-│   ├── robots.ts      # SEO robots config
+│   ├── about/
+│   ├── blog/
+│   ├── contact/
+│   ├── faq/
+│   ├── services/
+│   ├── admin/
+│   ├── sitemap.ts
+│   ├── robots.ts
+│   ├── layout.tsx
+│   └── page.tsx
 │
-├── components/        # Reusable UI components
-│   ├── Header.tsx
-│   ├── Footer.tsx
-│   └── ...
+├── components/
+│   ├── layout/
+│   ├── sections/
+│   ├── seo/
+│   ├── ui/
+│   ├── blog/
+│   └── admin/
 │
-├── public/            # Static assets
-├── styles/            # Global styles
-└── ...
+├── content/
+│   ├── blogs/
+│   └── faq/
+│
+├── lib/
+│   ├── firebase/
+│   ├── repositories/
+│   ├── services/
+│   └── validations/
+│
+├── styles/
+└── types/
 ```
+
+The project follows a modular architecture to keep code organized, reusable, and scalable as the platform grows.
 
 ---
 
-## ⚙️ Getting Started
+## Getting Started
 
-### 1️⃣ Install Dependencies
+### Install Dependencies
 
 ```bash
 pnpm install
 ```
 
-### 2️⃣ Run Development Server
+### Start Development Server
 
 ```bash
 pnpm dev
 ```
 
-Now open 👉 [http://localhost:3000](http://localhost:3000) in your browser.
+Open:
 
----
-
-## ✏️ Development
-
-Start editing your app by modifying:
-
-```
-app/page.tsx
+```text
+http://localhost:3000
 ```
 
-The page will automatically reload as you make changes.
+to view the application locally.
 
 ---
 
-## 🔤 Fonts Optimization
+## Build for Production
 
-This project uses next/font to optimize and load fonts like **Geist** for better performance and SEO.
+To create a production build:
 
----
+```bash
+pnpm build
+```
 
-## 📈 SEO Features
+To start the production server:
 
-* ✅ Optimized `layout.tsx`
-* ✅ Dynamic metadata support
-* ✅ `sitemap.ts` for search engines
-* ✅ `robots.ts` configuration
-* ✅ Fast loading & performance optimized
-
----
-
-## 🚀 Deployment
-
-The easiest way to deploy this project is using Vercel.
-
-### Deploy Steps:
-
-1. Push your code to GitHub
-2. Connect repository to Vercel
-3. Click **Deploy**
-
-Or deploy directly:
-
-👉 [https://vercel.com/new](https://vercel.com/new)
+```bash
+pnpm start
+```
 
 ---
 
-## 📚 Learn More
+## Features
 
-* 📖 Next.js Documentation
-* 🎓 Learn Next.js
-* 💻 Next.js GitHub repository
-
----
-
-## 🤝 About SH Tech Lab
-
-We are building a strong digital presence by delivering:
-
-* 🌐 Professional Websites
-* 📱 Modern Web Applications
-* 🚀 Scalable Digital Solutions
-
-Our goal is to provide **high-quality, reliable, and client-focused tech services**.
+* Responsive Design
+* SEO Optimized Pages
+* Dynamic Metadata
+* XML Sitemap
+* Robots Configuration
+* Blog System
+* Service Pages
+* Country-Specific Pages
+* Firebase Integration
+* Admin CRM Dashboard
+* Lead Management System
+* Scalable Architecture
 
 ---
 
-## 📬 Contact
+## SEO & Performance
 
-📧 Email: shtechlab (add your email)
-🌐 Website: (your domain)
-🔗 LinkedIn | Instagram | Facebook
+The project is designed with SEO best practices in mind:
+
+* Server-side rendering with Next.js
+* Optimized metadata
+* Sitemap generation
+* Robots configuration
+* Open Graph support
+* Fast page loading
+* Mobile-first responsive design
 
 ---
 
-## ⭐ Support
+## Deployment
 
-If you like this project:
+The project can be deployed on Vercel with minimal configuration.
 
-👉 Star the repo
-👉 Share with others
-👉 Follow SH Tech Lab
+### Deployment Steps
 
+1. Push the project to GitHub
+2. Connect the repository to Vercel
+3. Configure environment variables
+4. Deploy
+
+The website will automatically rebuild whenever new changes are pushed to the main branch.
+
+---
+
+## Admin CRM
+
+The project includes an internal CRM dashboard for managing:
+
+* Leads
+* Clients
+* Projects
+* Invoices
+* Business Operations
+
+The CRM is intended for internal use only and is protected through authentication.
+
+---
+
+## Contact
+
+Website: https://shtechlab.in
+Phone: +91 8303806952
+
+---
+
+## License
+
+This project is maintained by SH Tech Lab.
+
+© SH Tech Lab. All rights reserved.
