@@ -4,8 +4,7 @@ import { Inter, Space_Grotesk } from "next/font/google";
 import { Toaster } from "sonner";
 
 import { defaultSEO } from "@/lib/seo";
-import Header from "@/components/layout/Navbar";
-import Footer from "@/components/layout/Footer";
+import LayoutWrapper from "@/components/layout/LayoutWrapper";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -57,10 +56,10 @@ export default function RootLayout({
       <body
         className={`${inter.variable} ${spaceGrotesk.variable} bg-white text-black antialiased`}
       >
-        <Header />
-        <Toaster richColors position="top-right" />
-        <main>{children}</main>
-        <Footer />
+        <LayoutWrapper>
+          <Toaster richColors position="top-right" />
+          {children}
+        </LayoutWrapper>
       </body>
     </html>
   );
