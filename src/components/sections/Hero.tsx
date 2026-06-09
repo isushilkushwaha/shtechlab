@@ -7,6 +7,7 @@ import { useState, useEffect } from "react";
 import Link from "next/link";
 import { ArrowUpRight, Play } from "lucide-react";
 import { playfair, cormorant } from "@/lib/fonts";
+import Image from "next/image"
 
 export default function Hero() {
   // Array of words to rotate through in the heading
@@ -29,7 +30,7 @@ export default function Hero() {
   }, []);
 
   return (
-    <section className="relative overflow-hidden bg-white py-10 md:py-16 lg:py-24">
+    <section className="relative overflow-hidden bg-white py-5 md:py-16 lg:py-5">
       <div className="container mx-auto px-4 sm:px-6 max-w-7xl">
         
         {/* Main Split Layout */}

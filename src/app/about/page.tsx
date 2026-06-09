@@ -107,10 +107,7 @@ export default function AboutPage() {
               </div>
             </div>
 
-            {/* Right Side Abstract Golden Circle Element */}
-            <div className="relative hidden justify-end pt-12 lg:col-span-4 lg:flex">
-              <div className="relative mr-[-4rem] h-44 w-44 rounded-full border-[14px] border-[#FBBF24] opacity-90" />
-            </div>
+            
             
           </div>
         </Container>

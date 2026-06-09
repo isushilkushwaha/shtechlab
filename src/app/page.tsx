@@ -8,6 +8,7 @@ import Technologies from "@/components/sections/Technologies";
 //import FAQ from "@/components/sections/FAQ";
 import CTA from "@/components/sections/CTA";
 //import ContactSection from "@/components/sections/ContactSection";
+import { Process1 } from "@/components/sections/Process";
 
 export const metadata: Metadata = {
   title: "SH Tech Lab | Building Your Digital Tomorrow",
@@ -24,6 +25,7 @@ export default function HomePage() {
        <Services />
      
       <WhyChooseUs />
+      <Process1 />
       <Technologies />
       <CTA />
         {/*
