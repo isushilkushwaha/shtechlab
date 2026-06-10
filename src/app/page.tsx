@@ -9,6 +9,7 @@ import Technologies from "@/components/sections/Technologies";
 import CTA from "@/components/sections/CTA";
 //import ContactSection from "@/components/sections/ContactSection";
 import { Process1 } from "@/components/sections/Process";
+//import FAQ from "@/components/sections/FAQ";
 
 export const metadata: Metadata = {
   title: "SH Tech Lab | Building Your Digital Tomorrow",
@@ -26,11 +27,12 @@ export default function HomePage() {
      
       <WhyChooseUs />
       <Process1 />
+      
       <Technologies />
       <CTA />
         {/*
       <Testimonials />
-      <FAQ />
+    
       <CTA />
       <ContactSection /> */}
 
