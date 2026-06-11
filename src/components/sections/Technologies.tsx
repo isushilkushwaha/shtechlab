@@ -1,99 +1,168 @@
-"use client";
-
-import { motion } from "framer-motion";
+import { Card, CardContent } from "@/components/ui/card";
 import {
-  SiReact,
-  SiNextdotjs,
-  SiTailwindcss,
-  SiTypescript,
-  SiFirebase,
-} from "react-icons/si";
+  Rocket,
+  ShieldCheck,
+  MonitorSmartphone,
+  Smartphone,
+  Search,
+  TrendingUp,
+} from "lucide-react";
+import { playfair } from "@/lib/fonts";
 
 const technologies = [
   {
-    name: "React",
-    description: "Modern interactive UI development",
-    icon: SiReact,
+    title: "Fast Performance",
+    icon: Rocket,
+    bgColor: "bg-blue-50",
+    borderColor: "border-blue-200",
+    iconColor: "text-blue-600",
+    titleColor: "text-blue-700",
+    points: [
+      "Powered by Next.js",
+      "Quick page loading",
+      "Better SEO performance",
+    ],
   },
   {
-    name: "Next.js",
-    description: "Fast and SEO-friendly websites",
-    icon: SiNextdotjs,
+    title: "Secure & Reliable",
+    icon: ShieldCheck,
+    bgColor: "bg-green-50",
+    borderColor: "border-green-200",
+    iconColor: "text-green-600",
+    titleColor: "text-green-700",
+    points: [
+      "Firebase Backend",
+      "Secure Data Storage",
+      "Scalable Infrastructure",
+    ],
   },
   {
-    name: "Tailwind CSS",
-    description: "Clean and responsive design system",
-    icon: SiTailwindcss,
+    title: "Modern Experience",
+    icon: MonitorSmartphone,
+    bgColor: "bg-yellow-50",
+    borderColor: "border-yellow-200",
+    iconColor: "text-yellow-600",
+    titleColor: "text-yellow-700",
+    points: [
+      "React Technology",
+      "Interactive Components",
+      "Smooth Navigation",
+    ],
   },
   {
-    name: "TypeScript",
-    description: "Secure and scalable applications",
-    icon: SiTypescript,
+    title: "Mobile Responsive",
+    icon: Smartphone,
+    bgColor: "bg-purple-50",
+    borderColor: "border-purple-200",
+    iconColor: "text-purple-600",
+    titleColor: "text-purple-700",
+    points: [
+      "Tailwind CSS",
+      "Mobile Friendly",
+      "Tablet & Desktop Ready",
+    ],
   },
   {
-    name: "Firebase",
-    description: "Backend, database and hosting",
-    icon: SiFirebase,
+    title: "SEO Optimized",
+    icon: Search,
+    bgColor: "bg-orange-50",
+    borderColor: "border-orange-200",
+    iconColor: "text-orange-600",
+    titleColor: "text-orange-700",
+    points: [
+      "Google Friendly Structure",
+      "Faster Indexing",
+      "Higher Search Visibility",
+    ],
+  },
+  {
+    title: "Future Ready",
+    icon: TrendingUp,
+    bgColor: "bg-pink-50",
+    borderColor: "border-pink-200",
+    iconColor: "text-pink-600",
+    titleColor: "text-pink-700",
+    points: [
+      "Scalable Architecture",
+      "Easy Feature Expansion",
+      "Built For Growth",
+    ],
   },
 ];
 
 export default function Technologies() {
   return (
-    <section className="relative py-20 bg-black overflow-hidden">
-      {/* Background Blur */}
-      <div className="absolute top-0 left-0 w-72 h-72 bg-cyan-500/20 blur-3xl rounded-full" />
-      <div className="absolute bottom-0 right-0 w-72 h-72 bg-violet-500/20 blur-3xl rounded-full" />
-
-      <div className="max-w-7xl mx-auto px-6">
+    <section className="py-5 md:py-16 lg:py-5">
+      <div className="container mx-auto px-4">
         {/* Heading */}
-        <motion.div
-          initial={{ opacity: 0, y: 40 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-          viewport={{ once: true }}
-          className="text-center mb-14"
-        >
-          <p className="text-cyan-400 font-semibold uppercase tracking-wider mb-3">
-            Technologies
-          </p>
-
-          <h2 className="text-3xl md:text-5xl font-bold text-white mb-5">
-            Modern Technologies We Use
+        <div className="max-w-3xl">
+          <h2
+            className={`${playfair.className} text-4xl font-bold leading-tight text-slate-900 sm:text-5xl lg:text-6xl`}
+          >
+            Technology That Powers <br />
+            <span className="text-blue-600">Your Success</span>
           </h2>
 
-          <p className="text-zinc-400 max-w-2xl mx-auto text-base md:text-lg">
-            We create fast, secure, scalable, and SEO-friendly websites using
-            modern technologies trusted by businesses worldwide.
+          <p className="mt-6 text-base leading-relaxed text-slate-600 sm:text-lg">
+            We use industry-leading technologies to create websites that are
+            fast, secure, mobile-friendly, and optimized for search engines.
           </p>
-        </motion.div>
+        </div>
 
-        {/* Grid */}
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6">
-          {technologies.map((tech, index) => {
+        {/* Cards */}
+        <div className="mt-14 flex gap-6 overflow-x-auto pb-4 scrollbar-hide">
+          {technologies.map((tech) => {
             const Icon = tech.icon;
 
             return (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, y: 40 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.4, delay: index * 0.1 }}
-                viewport={{ once: true }}
-                whileHover={{ scale: 1.05 }}
-                className="group bg-white/5 border border-white/10 backdrop-blur-xl rounded-2xl p-6 text-center hover:border-cyan-400/50 transition-all duration-300"
+              <Card
+                key={tech.title}
+                className={`
+                  min-w-[300px]
+                  max-w-[300px]
+                  rounded-3xl
+                  border
+                  shadow-sm
+                  transition-all
+                  duration-300
+                  hover:-translate-y-2
+                  hover:shadow-xl
+                  ${tech.bgColor}
+                  ${tech.borderColor}
+                `}
               >
-                <div className="flex justify-center mb-4">
-                  <Icon className="text-4xl text-cyan-400 group-hover:rotate-6 transition-transform duration-300" />
-                </div>
+                <CardContent className="p-6">
+                  {/* Icon */}
+                  <div className="mb-5 flex h-14 w-14 items-center justify-center rounded-2xl bg-white shadow-sm">
+                    <Icon className={`h-7 w-7 ${tech.iconColor}`} />
+                  </div>
 
-                <h3 className="text-white font-semibold text-lg mb-2">
-                  {tech.name}
-                </h3>
+                  {/* Title */}
+                  <h3
+                    className={`mb-5 text-xl font-bold ${tech.titleColor}`}
+                  >
+                    {tech.title}
+                  </h3>
 
-                <p className="text-zinc-400 text-sm leading-relaxed">
-                  {tech.description}
-                </p>
-              </motion.div>
+                  {/* Features */}
+                  <ul className="space-y-4">
+                    {tech.points.map((point) => (
+                      <li
+                        key={point}
+                        className="flex items-start gap-3 text-sm text-slate-700"
+                      >
+                        <div
+                          className={`mt-2 h-2.5 w-2.5 rounded-full ${tech.iconColor.replace(
+                            "text",
+                            "bg"
+                          )}`}
+                        />
+                        <span>{point}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </CardContent>
+              </Card>
             );
           })}
         </div>

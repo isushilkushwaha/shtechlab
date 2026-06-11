@@ -1,6 +1,158 @@
 
 
 
+// "use client";
+
+// import { Lead } from "@/types/lead";
+
+// import {
+//   Dialog,
+//   DialogContent,
+//   DialogDescription,
+//   DialogHeader,
+//   DialogTitle,
+// } from "@/components/ui/dialog";
+
+// interface LeadDetailsDialogProps {
+//   lead: Lead;
+//   open: boolean;
+//   onOpenChange: (
+//     open: boolean
+//   ) => void;
+// }
+
+// export default function LeadDetailsDialog({
+//   lead,
+//   open,
+//   onOpenChange,
+// }: LeadDetailsDialogProps) {
+//   return (
+//     <Dialog
+//       open={open}
+//       onOpenChange={onOpenChange}
+//     >
+//       <DialogContent className="max-w-3xl">
+
+//         <DialogHeader>
+
+//           <DialogTitle>
+//             Lead Details
+//           </DialogTitle>
+
+//           <DialogDescription>
+//             Complete lead information.
+//           </DialogDescription>
+
+//         </DialogHeader>
+
+//         <div className="mt-4 grid gap-6 md:grid-cols-2">
+
+//           <div>
+//             <p className="text-sm text-muted-foreground">
+//               Name
+//             </p>
+
+//             <p className="font-medium">
+//               {lead.name || "—"}
+//             </p>
+//           </div>
+
+//           <div>
+//   <p className="text-sm text-muted-foreground">
+//     Email
+//   </p>
+
+//   <p className="font-medium break-words">
+//     {lead.email || "—"}
+//   </p>
+// </div>
+
+//           <div>
+//             <p className="text-sm text-muted-foreground">
+//               Phone
+//             </p>
+
+//             <p className="font-medium">
+//               {lead.phone || "—"}
+//             </p>
+//           </div>
+
+//           <div>
+//             <p className="text-sm text-muted-foreground">
+//               Company
+//             </p>
+
+//             <p className="font-medium">
+//               {lead.company || "—"}
+//             </p>
+//           </div>
+
+//           <div>
+//             <p className="text-sm text-muted-foreground">
+//               Service
+//             </p>
+
+//             <p className="font-medium">
+//               {lead.service || "—"}
+//             </p>
+//           </div>
+
+//           <div>
+//             <p className="text-sm text-muted-foreground">
+//               Budget
+//             </p>
+
+//             <p className="font-medium">
+//               {lead.budget || "—"}
+//             </p>
+//           </div>
+
+//           <div>
+//             <p className="text-sm text-muted-foreground">
+//               Status
+//             </p>
+
+//             <p className="font-medium">
+//               {lead.status || "New"}
+//             </p>
+//           </div>
+
+//           <div>
+//             <p className="text-sm text-muted-foreground">
+//               Created At
+//             </p>
+
+//             <p className="font-medium">
+//               {lead.createdAt?.seconds
+//                 ? new Date(
+//                     lead.createdAt.seconds *
+//                       1000
+//                   ).toLocaleString()
+//                 : "N/A"}
+//             </p>
+//           </div>
+
+//         </div>
+
+//         <div className="mt-6">
+
+//           <p className="mb-2 text-sm text-muted-foreground">
+//             Message
+//           </p>
+
+//           <div className="rounded-lg border bg-muted/20 p-4 min-h-[120px] whitespace-pre-wrap">
+//             {lead.message ||
+//               "No message provided."}
+//           </div>
+
+//         </div>
+
+//       </DialogContent>
+//     </Dialog>
+//   );
+// }
+
+
 "use client";
 
 import { Lead } from "@/types/lead";
@@ -26,15 +178,19 @@ export default function LeadDetailsDialog({
   open,
   onOpenChange,
 }: LeadDetailsDialogProps) {
+  const companyOrBusiness =
+    lead.companyName ||
+    lead.businessName ||
+    "—";
+
   return (
     <Dialog
       open={open}
       onOpenChange={onOpenChange}
     >
-      <DialogContent className="max-w-3xl">
+      <DialogContent className="max-w-4xl">
 
         <DialogHeader>
-
           <DialogTitle>
             Lead Details
           </DialogTitle>
@@ -42,7 +198,6 @@ export default function LeadDetailsDialog({
           <DialogDescription>
             Complete lead information.
           </DialogDescription>
-
         </DialogHeader>
 
         <div className="mt-4 grid gap-6 md:grid-cols-2">
@@ -53,19 +208,19 @@ export default function LeadDetailsDialog({
             </p>
 
             <p className="font-medium">
-              {lead.name || "—"}
+              {lead.name}
             </p>
           </div>
 
           <div>
-  <p className="text-sm text-muted-foreground">
-    Email
-  </p>
+            <p className="text-sm text-muted-foreground">
+              Email
+            </p>
 
-  <p className="font-medium break-words">
-    {lead.email || "—"}
-  </p>
-</div>
+            <p className="font-medium break-words">
+              {lead.email}
+            </p>
+          </div>
 
           <div>
             <p className="text-sm text-muted-foreground">
@@ -73,47 +228,112 @@ export default function LeadDetailsDialog({
             </p>
 
             <p className="font-medium">
-              {lead.phone || "—"}
+              {lead.phone}
             </p>
           </div>
 
           <div>
             <p className="text-sm text-muted-foreground">
-              Company
+              Lead Type
             </p>
 
-            <p className="font-medium">
-              {lead.company || "—"}
+            <p className="font-medium capitalize">
+              {lead.type}
             </p>
           </div>
 
-          <div>
-            <p className="text-sm text-muted-foreground">
-              Service
-            </p>
+          {(lead.companyName ||
+            lead.businessName) && (
+            <div>
+              <p className="text-sm text-muted-foreground">
+                Company / Business
+              </p>
 
-            <p className="font-medium">
-              {lead.service || "—"}
-            </p>
-          </div>
+              <p className="font-medium">
+                {companyOrBusiness}
+              </p>
+            </div>
+          )}
 
-          <div>
-            <p className="text-sm text-muted-foreground">
-              Budget
-            </p>
+          {lead.subject && (
+            <div>
+              <p className="text-sm text-muted-foreground">
+                Subject
+              </p>
 
-            <p className="font-medium">
-              {lead.budget || "—"}
-            </p>
-          </div>
+              <p className="font-medium">
+                {lead.subject}
+              </p>
+            </div>
+          )}
+
+          {lead.service && (
+            <div>
+              <p className="text-sm text-muted-foreground">
+                Service
+              </p>
+
+              <p className="font-medium">
+                {lead.service}
+              </p>
+            </div>
+          )}
+
+          {lead.preferredCallTime && (
+            <div>
+              <p className="text-sm text-muted-foreground">
+                Preferred Call Time
+              </p>
+
+              <p className="font-medium">
+                {lead.preferredCallTime}
+              </p>
+            </div>
+          )}
+
+          {lead.projectType && (
+            <div>
+              <p className="text-sm text-muted-foreground">
+                Project Type
+              </p>
+
+              <p className="font-medium">
+                {lead.projectType}
+              </p>
+            </div>
+          )}
+
+          {lead.budget && (
+            <div>
+              <p className="text-sm text-muted-foreground">
+                Budget
+              </p>
+
+              <p className="font-medium">
+                {lead.budget}
+              </p>
+            </div>
+          )}
+
+          {lead.timeline && (
+            <div>
+              <p className="text-sm text-muted-foreground">
+                Timeline
+              </p>
+
+              <p className="font-medium">
+                {lead.timeline}
+              </p>
+            </div>
+          )}
 
           <div>
             <p className="text-sm text-muted-foreground">
               Status
             </p>
 
-            <p className="font-medium">
-              {lead.status || "New"}
+            <p className="font-medium capitalize">
+              {lead.status}
             </p>
           </div>
 
@@ -134,18 +354,33 @@ export default function LeadDetailsDialog({
 
         </div>
 
-        <div className="mt-6">
+        {lead.message && (
+          <div className="mt-6">
 
-          <p className="mb-2 text-sm text-muted-foreground">
-            Message
-          </p>
+            <p className="mb-2 text-sm text-muted-foreground">
+              Message
+            </p>
 
-          <div className="rounded-lg border bg-muted/20 p-4 min-h-[120px] whitespace-pre-wrap">
-            {lead.message ||
-              "No message provided."}
+            <div className="min-h-[120px] whitespace-pre-wrap rounded-lg border bg-muted/20 p-4">
+              {lead.message}
+            </div>
+
           </div>
+        )}
 
-        </div>
+        {lead.projectDescription && (
+          <div className="mt-6">
+
+            <p className="mb-2 text-sm text-muted-foreground">
+              Project Description
+            </p>
+
+            <div className="min-h-[120px] whitespace-pre-wrap rounded-lg border bg-muted/20 p-4">
+              {lead.projectDescription}
+            </div>
+
+          </div>
+        )}
 
       </DialogContent>
     </Dialog>

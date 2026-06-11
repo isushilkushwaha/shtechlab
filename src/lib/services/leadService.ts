@@ -1,47 +1,16 @@
-// import { leadRepository } from "@/lib/repositories/leadRepository";
-
-// import { Lead } from "@/types/lead";
-
-// export const leadService = {
-//   async fetchLeads(): Promise<Lead[]> {
-//     return await leadRepository.getLeads();
-//   },
-
-//   async getLeadById(id: string) {
-//     return await leadRepository.getLeadById(id);
-//   },
-
-//   async updateLeadStatus(
-//     id: string,
-//     status: string
-//   ) {
-//     return await leadRepository.updateLeadStatus(
-//       id,
-//       status
-//     );
-//   },
-
-//   async deleteLead(id: string) {
-//     return await leadRepository.deleteLead(id);
-//   },
-
-//   async convertLeadToClient(id: string) {
-//     const lead =
-//       await leadRepository.getLeadById(id);
-
-//     if (!lead) {
-//       throw new Error("Lead not found");
-//     }
-
-//     return lead;
-//   },
-// };
-
 import { leadRepository } from "@/lib/repositories/leadRepository";
 
 import { Lead } from "@/types/lead";
 
 export const leadService = {
+  async createLead(
+    leadData: Omit<Lead, "id">
+  ): Promise<string> {
+    return await leadRepository.createLead(
+      leadData
+    );
+  },
+
   async fetchLeads(): Promise<Lead[]> {
     return await leadRepository.getLeads();
   },
@@ -52,7 +21,7 @@ export const leadService = {
 
   async updateLeadStatus(
     id: string,
-    status: string
+    status: Lead["status"]
   ) {
     return await leadRepository.updateLeadStatus(
       id,
@@ -71,6 +40,9 @@ export const leadService = {
     if (!lead) {
       throw new Error("Lead not found");
     }
+
+    // Future:
+    // clientRepository.createClient(lead)
 
     return lead;
   },
@@ -96,7 +68,7 @@ export const leadService = {
     return leads.filter(
       (lead) =>
         !lead.status ||
-        lead.status === "New"
+        lead.status === "new"
     ).length;
   },
 
@@ -106,7 +78,7 @@ export const leadService = {
 
     return leads.filter(
       (lead) =>
-        lead.status === "Won"
+        lead.status === "won"
     ).length;
   },
 
@@ -116,7 +88,7 @@ export const leadService = {
 
     return leads.filter(
       (lead) =>
-        lead.status === "Lost"
+        lead.status === "lost"
     ).length;
   },
 
@@ -128,13 +100,29 @@ export const leadService = {
 
     const won = leads.filter(
       (lead) =>
-        lead.status === "Won"
+        lead.status === "won"
     ).length;
 
-    if (total === 0) return 0;
+    if (total === 0) {
+      return 0;
+    }
 
     return Number(
       ((won / total) * 100).toFixed(1)
+    );
+  },
+
+  async getLeadsByType(
+    type:
+      | "contact"
+      | "consultation"
+      | "project"
+  ): Promise<Lead[]> {
+    const leads =
+      await leadRepository.getLeads();
+
+    return leads.filter(
+      (lead) => lead.type === type
     );
   },
 };

@@ -1,5 +1,126 @@
 
 
+// "use client";
+
+// import { useState } from "react";
+
+// import {
+//   MoreHorizontal,
+//   Eye,
+//   Trash2,
+//   UserPlus,
+// } from "lucide-react";
+
+// import { Button } from "@/components/ui/button";
+
+// import {
+//   DropdownMenu,
+//   DropdownMenuContent,
+//   DropdownMenuItem,
+//   DropdownMenuTrigger,
+// } from "@/components/ui/dropdown-menu";
+
+// import LeadDetailsDialog from "./LeadDetailsDialog";
+
+// import { leadService } from "@/lib/services/leadService";
+
+// import { Lead } from "@/types/lead";
+
+// interface LeadActionsProps {
+//   lead: Lead;
+// }
+
+// export default function LeadActions({
+//   lead,
+// }: LeadActionsProps) {
+//   const [open, setOpen] =
+//     useState(false);
+
+//   const handleDelete = async () => {
+//     const confirmed = window.confirm(
+//       "Delete this lead?"
+//     );
+
+//     if (!confirmed) return;
+
+//     try {
+//       await leadService.deleteLead(
+//         lead.id
+//       );
+
+//       window.location.reload();
+//     } catch (error) {
+//       console.error(error);
+//     }
+//   };
+
+//   const handleConvert =
+//     async () => {
+//       try {
+//         await leadService.convertLeadToClient(
+//           lead.id
+//         );
+
+//         alert(
+//           "Lead converted successfully"
+//         );
+//       } catch (error) {
+//         console.error(error);
+//       }
+//     };
+
+//   return (
+//     <>
+//       <DropdownMenu>
+
+//         <DropdownMenuTrigger asChild>
+//           <Button
+//             variant="ghost"
+//             size="icon"
+//           >
+//             <MoreHorizontal className="h-4 w-4" />
+//           </Button>
+//         </DropdownMenuTrigger>
+
+//         <DropdownMenuContent align="end">
+
+//           <DropdownMenuItem
+//             onClick={() =>
+//               setOpen(true)
+//             }
+//           >
+//             <Eye className="mr-2 h-4 w-4" />
+//             View
+//           </DropdownMenuItem>
+
+//           <DropdownMenuItem
+//             onClick={handleConvert}
+//           >
+//             <UserPlus className="mr-2 h-4 w-4" />
+//             Convert To Client
+//           </DropdownMenuItem>
+
+//           <DropdownMenuItem
+//             onClick={handleDelete}
+//             className="text-red-500"
+//           >
+//             <Trash2 className="mr-2 h-4 w-4" />
+//             Delete
+//           </DropdownMenuItem>
+
+//         </DropdownMenuContent>
+
+//       </DropdownMenu>
+
+//       <LeadDetailsDialog
+//         lead={lead}
+//         open={open}
+//         onOpenChange={setOpen}
+//       />
+//     </>
+//   );
+// }
+
 "use client";
 
 import { useState } from "react";
@@ -37,6 +158,11 @@ export default function LeadActions({
     useState(false);
 
   const handleDelete = async () => {
+    if (!lead.id) {
+      alert("Lead ID not found");
+      return;
+    }
+
     const confirmed = window.confirm(
       "Delete this lead?"
     );
@@ -50,12 +176,20 @@ export default function LeadActions({
 
       window.location.reload();
     } catch (error) {
-      console.error(error);
+      console.error(
+        "Failed to delete lead",
+        error
+      );
     }
   };
 
   const handleConvert =
     async () => {
+      if (!lead.id) {
+        alert("Lead ID not found");
+        return;
+      }
+
       try {
         await leadService.convertLeadToClient(
           lead.id
@@ -64,8 +198,13 @@ export default function LeadActions({
         alert(
           "Lead converted successfully"
         );
+
+        window.location.reload();
       } catch (error) {
-        console.error(error);
+        console.error(
+          "Failed to convert lead",
+          error
+        );
       }
     };
 
@@ -90,7 +229,7 @@ export default function LeadActions({
             }
           >
             <Eye className="mr-2 h-4 w-4" />
-            View
+            View Details
           </DropdownMenuItem>
 
           <DropdownMenuItem
@@ -105,7 +244,7 @@ export default function LeadActions({
             className="text-red-500"
           >
             <Trash2 className="mr-2 h-4 w-4" />
-            Delete
+            Delete Lead
           </DropdownMenuItem>
 
         </DropdownMenuContent>

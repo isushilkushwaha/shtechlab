@@ -1,4 +1,5 @@
-import CTA from "@/components/sections/CTA";
+import {  Sparkles } from "lucide-react";
+import Link from "next/dist/client/link";
 
 export const metadata = {
   title: "Website Redesign | SH Tech Lab",
@@ -223,7 +224,15 @@ export default function WebsiteRedesignPage() {
 
 
 
-      <CTA />
+      <div className="w-full flex justify-center items-center mt-8 px-8">
+  <Link
+    href="/start-project"
+    className="flex items-center justify-center rounded-xl border border-neutral-200 bg-white px-6 h-12 text-sm font-semibold text-neutral-800 transition-all duration-200 hover:bg-neutral-50 hover:border-neutral-300 active:scale-[0.98] w-full max-w-[280px] sm:w-fit text-center dark:bg-neutral-950 dark:border-neutral-800 dark:text-neutral-200 dark:hover:bg-neutral-900 dark:hover:border-neutral-700 select-none"
+  >
+    <Sparkles className="mr-2 h-4 w-4 shrink-0 text-neutral-500 dark:text-neutral-400" />
+    <span>Start Your Project</span>
+  </Link>
+</div>
 
     </main>
   );

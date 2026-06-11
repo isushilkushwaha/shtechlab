@@ -53,7 +53,7 @@ const Process1 = ({ className }: Process1Props) => {
   ];
 
   return (
-    <section className={cn("py-24 lg:py-32", className)}>
+    <section className={cn("py-5 md:py-16 lg:py-5", className)}>
       <Container>
         <div className="grid grid-cols-1 gap-12 lg:grid-cols-12 lg:gap-24">
           {/* Left Side */}
@@ -110,33 +110,59 @@ const Process1 = ({ className }: Process1Props) => {
             </div>
 
             {/* Button */}
-                      </div>
+          </div>
+
+          
 
           {/* Right Side */}
-          <ul className="relative lg:col-span-8 lg:pl-10">
-            {process.map((step) => (
-              <li
-                key={step.step}
-                className="relative flex flex-col gap-8 border-t py-8 md:flex-row lg:py-10"
-              >
-                <Illustration className="absolute right-4 top-4" />
+<ul className="relative flex gap-4 overflow-x-auto pb-4 no-scrollbar lg:col-span-8 lg:block lg:overflow-visible lg:pl-10">
+  {process.map((step) => (
+    <li
+      key={step.step}
+      className="
+        relative
+        flex-none
+        w-[300px]
+        rounded-2xl
+        border
+        border-slate-200
+        bg-white
+        p-6
+        shadow-sm
 
-                <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-md bg-muted text-sm font-semibold">
-                  {step.step}
-                </div>
+        lg:w-auto
+        lg:rounded-none
+        lg:border-0
+        lg:bg-transparent
+        lg:p-0
+        lg:shadow-none
+        lg:flex
+        lg:flex-col
+        lg:gap-8
+        lg:border-t
+        lg:py-10
+      "
+    >
+      <Illustration className="absolute right-4 top-4" />
 
-                <div className="max-w-2xl">
-                  <h3 className="mb-3 text-2xl font-semibold tracking-tight lg:text-3xl">
-                    {step.title}
-                  </h3>
+      <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-md bg-muted text-sm font-semibold">
+        {step.step}
+      </div>
 
-                  <p className="leading-relaxed text-foreground/60">
-                    {step.description}
-                  </p>
-                </div>
-              </li>
-            ))}
-          </ul>
+      <div className="mt-4 lg:mt-0 max-w-2xl">
+        <h3 className="mb-3 text-2xl font-semibold tracking-tight lg:text-3xl">
+          {step.title}
+        </h3>
+
+        <p className="leading-relaxed text-foreground/60">
+          {step.description}
+        </p>
+      </div>
+    </li>
+  ))}
+</ul>
+     
+     
         </div>
       </Container>
     </section>

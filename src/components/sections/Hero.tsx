@@ -69,7 +69,7 @@ export default function Hero() {
             {/* Action Buttons */}
             <div className="mt-8 flex flex-col sm:flex-row items-center gap-4 w-full sm:w-auto">
               <Link
-                href="/contact"
+                href="/ConsultationForm"
                 className="flex items-center justify-center rounded-full bg-black px-6 py-3.5 text-sm font-semibold text-white transition hover:bg-gray-900 w-full sm:w-auto text-center"
               >
                 Book a Free Consultation

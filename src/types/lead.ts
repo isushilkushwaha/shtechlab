@@ -1,18 +1,35 @@
 export interface Lead {
-  id: string;
+  id?: string;
+
+  type:
+    | "contact"
+    | "consultation"
+    | "project";
 
   name: string;
   email: string;
   phone: string;
 
-  company?: string;
-  service?: string;
-  budget?: string;
+  subject?: string;
   message?: string;
 
-  status?: string;
+  businessName?: string;
+  service?: string;
+  preferredCallTime?: string;
 
-  createdAt?: {
-    seconds: number;
-  };
+  companyName?: string;
+  projectType?: string;
+  budget?: string;
+  timeline?: string;
+  projectDescription?: string;
+
+  status:
+    | "new"
+    | "contacted"
+    | "qualified"
+    | "proposal_sent"
+    | "won"
+    | "lost";
+
+  createdAt?: any;
 }

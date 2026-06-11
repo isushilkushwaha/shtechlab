@@ -9,7 +9,10 @@ import Technologies from "@/components/sections/Technologies";
 import CTA from "@/components/sections/CTA";
 //import ContactSection from "@/components/sections/ContactSection";
 import { Process1 } from "@/components/sections/Process";
-//import FAQ from "@/components/sections/FAQ";
+
+import LeadPopup from "@/components/sections/LeadPopup";
+
+import ContactForm from "@/components/forms/ContactForm";
 
 export const metadata: Metadata = {
   title: "SH Tech Lab | Building Your Digital Tomorrow",
@@ -21,7 +24,7 @@ export default function HomePage() {
   return (
     <main className="overflow-hidden">
       
-      
+      <LeadPopup/>
       <Hero />
        <Services />
      
@@ -29,6 +32,8 @@ export default function HomePage() {
       <Process1 />
       
       <Technologies />
+      
+      <ContactForm />
       <CTA />
         {/*
       <Testimonials />

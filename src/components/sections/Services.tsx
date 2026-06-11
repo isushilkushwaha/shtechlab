@@ -16,19 +16,17 @@ import { playfair } from "@/lib/fonts";
 
 export default function ServicesShowcase() {
   return (
-    <section className="bg-white py-16 md:py-24">
+    <section className="bg-white py-5 md:py-16 lg:py-5">
       <div className="container mx-auto max-w-7xl px-4 sm:px-6">
         <div className="flex flex-col gap-12">
 
           {/* Header */}
           <div className="max-w-3xl">
             
-            <h2
-  className={`${playfair.className} text-4xl font-bold leading-tight text-slate-900 sm:text-5xl lg:text-6xl`}
->
-  Building Your <br />
-  <span className="text-blue-600">Digital Tomorrow</span>
-</h2>
+            <h2 className={`${playfair.className} text-4xl font-bold leading-tight text-slate-900 sm:text-5xl lg:text-6xl`}>
+              Building Your <br />
+           <span className="text-blue-600">Digital Tomorrow</span>
+            </h2>
 
             
 
@@ -60,52 +58,73 @@ export default function ServicesShowcase() {
             </div>
 
             {/* Services */}
-            <div className="order-2 lg:order-2 lg:col-span-7">
+{/* Services */}
+<div className="order-2 lg:order-2 lg:col-span-7 overflow-hidden">
 
-              {services.map((service) => (
-                <div
-                  key={service.slug}
-                  className="border-t border-slate-200 py-8"
-                >
-                  <div className="flex flex-col gap-4">
+  <div className="flex gap-4 overflow-x-auto pb-4 lg:block">
+    {services.map((service) => (
+      <div
+        key={service.slug}
+        className="
+          flex-none
+          w-[260px]
+          snap-start
 
-                    <h3 className="text-2xl font-semibold text-slate-900 md:text-3xl">
-                      {service.title}
-                    </h3>
+          rounded-2xl
+          border
+          border-slate-200
+          bg-white
+          p-5
+          shadow-sm
 
-                    <p className="max-w-2xl leading-relaxed text-slate-600">
-                      {service.longDescription}
-                    </p>
+          lg:w-auto
+          lg:rounded-none
+          lg:border-x-0
+          lg:border-b-0
+          lg:border-t
+          lg:bg-transparent
+          lg:p-0
+          lg:py-8
+          lg:shadow-none
+        "
+      >
+        <div className="flex flex-col gap-4">
+          <h3 className="text-xl font-semibold text-slate-900 md:text-2xl lg:text-3xl">
+            {service.title}
+          </h3>
 
-                    <div>
-                      <Link
-                        href={`/services/${service.slug}`}
-                        className="inline-flex items-center font-medium text-blue-600 transition-colors hover:text-blue-700"
-                      >
-                        Learn More
-                        <ArrowUpRight className="ml-1 h-4 w-4" />
-                      </Link>
-                    </div>
+          <p className="leading-relaxed text-slate-600">
+            {service.longDescription}
+          </p>
 
-                  </div>
-                </div>
-              ))}
+          <div>
+            <Link
+              href={`/services/${service.slug}`}
+              className="inline-flex items-center font-medium text-blue-600 hover:text-blue-700"
+            >
+              Learn More
+              <ArrowUpRight className="ml-1 h-4 w-4" />
+            </Link>
+          </div>
+        </div>
+      </div>
+    ))}
+  </div>
 
-              {/* CTA */}
-              <div className="mt-10 flex justify-center lg:justify-start">
-                <Button
-                  asChild
-                  size="lg"
-                  className="rounded-full bg-blue-600 px-6 hover:bg-blue-700"
-                >
-                  <Link href="/contact">
-                    Book a Free Consultation
-                    <ArrowUpRight className="ml-2 h-4 w-4" />
-                  </Link>
-                </Button>
-              </div>
+  <div className="mt-10 flex justify-center lg:justify-start">
+    <Button
+      asChild
+      size="lg"
+      className="rounded-full bg-blue-600 px-6 hover:bg-blue-700"
+    >
+      <Link href="/ConsultationForm">
+        Book a Free Consultation
+        <ArrowUpRight className="ml-2 h-4 w-4" />
+      </Link>
+    </Button>
+  </div>
 
-            </div>
+</div>
 
           </div>
         </div>

@@ -1,3 +1,77 @@
+// "use client";
+
+// import { useState } from "react";
+
+// import {
+//   Select,
+//   SelectContent,
+//   SelectItem,
+//   SelectTrigger,
+//   SelectValue,
+// } from "@/components/ui/select";
+
+// import { leadService } from "@/lib/services/leadService";
+
+// interface LeadStatusSelectProps {
+//   leadId: string;
+//   currentStatus?: string;
+// }
+
+// const statuses = [
+//   "New",
+//   "Contacted",
+//   "Meeting Scheduled",
+//   "Proposal Sent",
+//   "Won",
+//   "Lost",
+// ];
+
+// export default function LeadStatusSelect({
+//   leadId,
+//   currentStatus,
+// }: LeadStatusSelectProps) {
+//   const [status, setStatus] = useState(
+//     currentStatus || "New"
+//   );
+
+//   const handleChange = async (
+//     value: string
+//   ) => {
+//     try {
+//       setStatus(value);
+
+//       await leadService.updateLeadStatus(
+//         leadId,
+//         value
+//       );
+//     } catch (error) {
+//       console.error(error);
+//     }
+//   };
+
+//   return (
+//     <Select
+//       value={status}
+//       onValueChange={handleChange}
+//     >
+//       <SelectTrigger className="w-[180px]">
+//         <SelectValue />
+//       </SelectTrigger>
+
+//       <SelectContent>
+//         {statuses.map((item) => (
+//           <SelectItem
+//             key={item}
+//             value={item}
+//           >
+//             {item}
+//           </SelectItem>
+//         ))}
+//       </SelectContent>
+//     </Select>
+//   );
+// }
+
 "use client";
 
 import { useState } from "react";
@@ -12,30 +86,54 @@ import {
 
 import { leadService } from "@/lib/services/leadService";
 
+import { Lead } from "@/types/lead";
+
 interface LeadStatusSelectProps {
   leadId: string;
-  currentStatus?: string;
+  currentStatus?: Lead["status"];
 }
 
-const statuses = [
-  "New",
-  "Contacted",
-  "Meeting Scheduled",
-  "Proposal Sent",
-  "Won",
-  "Lost",
+const statuses: {
+  value: Lead["status"];
+  label: string;
+}[] = [
+  {
+    value: "new",
+    label: "New",
+  },
+  {
+    value: "contacted",
+    label: "Contacted",
+  },
+  {
+    value: "qualified",
+    label: "Qualified",
+  },
+  {
+    value: "proposal_sent",
+    label: "Proposal Sent",
+  },
+  {
+    value: "won",
+    label: "Won",
+  },
+  {
+    value: "lost",
+    label: "Lost",
+  },
 ];
 
 export default function LeadStatusSelect({
   leadId,
-  currentStatus,
+  currentStatus = "new",
 }: LeadStatusSelectProps) {
-  const [status, setStatus] = useState(
-    currentStatus || "New"
-  );
+  const [status, setStatus] =
+    useState<Lead["status"]>(
+      currentStatus
+    );
 
   const handleChange = async (
-    value: string
+    value: Lead["status"]
   ) => {
     try {
       setStatus(value);
@@ -45,14 +143,21 @@ export default function LeadStatusSelect({
         value
       );
     } catch (error) {
-      console.error(error);
+      console.error(
+        "Failed to update lead status",
+        error
+      );
     }
   };
 
   return (
     <Select
       value={status}
-      onValueChange={handleChange}
+      onValueChange={(value) =>
+        handleChange(
+          value as Lead["status"]
+        )
+      }
     >
       <SelectTrigger className="w-[180px]">
         <SelectValue />
@@ -61,10 +166,10 @@ export default function LeadStatusSelect({
       <SelectContent>
         {statuses.map((item) => (
           <SelectItem
-            key={item}
-            value={item}
+            key={item.value}
+            value={item.value}
           >
-            {item}
+            {item.label}
           </SelectItem>
         ))}
       </SelectContent>

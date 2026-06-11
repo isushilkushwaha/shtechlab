@@ -9,7 +9,7 @@ const playfair = Playfair_Display({
 
 export default function WhyChooseUs() {
   return (
-    <section className="relative overflow-hidden py-5 bg-white">
+    <section className="relative overflow-hidden py-5 md:py-16 lg:py-5 bg-white">
       {/* Background Glow */}
       <div className="absolute left-1/2 top-24 h-80 w-80 -translate-x-1/2 rounded-full bg-amber-200/20 blur-[120px]" />
 
