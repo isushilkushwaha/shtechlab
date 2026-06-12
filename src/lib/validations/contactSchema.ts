@@ -1,3 +1,5 @@
+
+
 import { z } from "zod";
 
 export const contactSchema = z.object({
@@ -8,6 +10,8 @@ export const contactSchema = z.object({
     .max(100, "Name is too long"),
 
   email: z
+    .string()
+    .trim()
     .email("Please enter a valid email address")
     .max(255, "Email is too long"),
 
@@ -16,10 +20,7 @@ export const contactSchema = z.object({
     .trim()
     .min(10, "Phone number must be at least 10 digits")
     .max(15, "Phone number is too long")
-    .regex(
-      /^[0-9+\-\s()]+$/,
-      "Please enter a valid phone number"
-    ),
+    .regex(/^[0-9+\-\s()]+$/, "Please enter a valid phone number"),
 
   subject: z
     .string()
@@ -34,6 +35,4 @@ export const contactSchema = z.object({
     .max(1000, "Message is too long"),
 });
 
-export type ContactFormData = z.infer<
-  typeof contactSchema
->;  
+export type ContactFormData = z.infer<typeof contactSchema>;

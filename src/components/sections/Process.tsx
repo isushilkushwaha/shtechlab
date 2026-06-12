@@ -59,34 +59,18 @@ const Process1 = ({ className }: Process1Props) => {
           {/* Left Side */}
           <div className="top-10 h-fit space-y-7 lg:sticky lg:col-span-4">
             {/* Heading */}
-            <div className="mb-8">
-              <h2
-                className={`${playfair.className} relative text-4xl sm:text-5xl lg:text-5xl font-semibold leading-[1.1] tracking-tight`}
-              >
-                <div className="relative inline-block">
-                  {/* Golden Glow */}
-                  <div className="" />
+            <div className="relative mb-8 flex flex-col items-center text-center lg:items-start lg:text-left">
+  {/* Abstract Layered Ambient Background Effect */}
+  <div className="absolute -top-4 -z-10 h-16 w-36 rounded-full bg-gradient-to-r from-emerald-200/30 to-amber-200/20 blur-xl" />
 
-                  <span className="block text-slate-900">
-                    How We Work
-                  </span>
-
-                  {/* Underline */}
-                  <div className="absolute -bottom-3 left-0 w-full">
-                    <svg
-                      viewBox="0 0 160 16"
-                      preserveAspectRatio="none"
-                      className="h-3 w-full text-[#14b193]"
-                    >
-                      <path
-                        d="M 4 13 C 35 4, 110 3, 156 12 C 110 5, 35 6, 4 13 Z"
-                        fill="currentColor"
-                      />
-                    </svg>
-                  </div>
-                </div>
-              </h2>
-            </div>
+  <h2 className={`${playfair.className} text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl md:text-5xl leading-none`}>
+    How We Work
+  </h2>
+  
+  <p className="mt-2 text-xs font-medium uppercase tracking-widest text-slate-400">
+    Step-by-Step Delivery
+  </p>
+</div>
 
             {/* Description */}
             <p className="max-w-md text-base leading-relaxed text-foreground/60">

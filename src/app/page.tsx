@@ -6,7 +6,6 @@ import WhyChooseUs from "@/components/sections/WhyChooseUs";
 import Technologies from "@/components/sections/Technologies";
 //import Testimonials from "@/components/sections/Testimonials";
 //import FAQ from "@/components/sections/FAQ";
-import CTA from "@/components/sections/CTA";
 //import ContactSection from "@/components/sections/ContactSection";
 import { Process1 } from "@/components/sections/Process";
 
@@ -34,7 +33,7 @@ export default function HomePage() {
       <Technologies />
       
       <ContactForm />
-      <CTA />
+      
         {/*
       <Testimonials />
     
