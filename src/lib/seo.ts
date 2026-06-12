@@ -7,11 +7,20 @@ export const defaultSEO = {
 
   description:
     "SH Tech Lab is your trusted partner for website development, SEO, and digital business solutions. We help you build a strong online presence and grow your business in the digital age.",
+      
+        alternates: {
+    canonical: "https://www.shtechlab.in",
+  },
 
   keywords: [
     // Brand
     "SH Tech Lab",
     "SH Tech Lab India",
+    "shtechlab",
+    "sh tech lab website",
+    "sh tech ",
+    "tech lab",
+    "sh tech lab sushil kushwaha",
 
     // Web Development
     "web development company",
@@ -60,6 +69,48 @@ export const defaultSEO = {
     "Next.js developers India",
     "React developers India",
     "software company India",
+    "IT services India",
+    "digital solutions India",
+    "SEO services India",
+
+    // Top Indian Tech Hubs & Major Cities
+    "web development company Delhi NCR",
+    "website design Noida",
+    "web development company Gurgaon",
+    "software company Bangalore",
+    "IT services Hyderabad",
+    "website development Mumbai",
+    "digital solutions Pune",
+    "SEO services Chennai",
+    "web development company Kolkata",
+    "website design Ahmedabad",
+    "software developers Jaipur",
+    "IT company Chandigarh",
+    "web development Lucknow",
+    "digital agency Indore",
+    "website development Kochi",
+    "Prayagraj web development company",
+    "web development company Patna",
+    " website design Bhubaneswar",
+    "software company Guwahati",
+    "IT services Dehradun",
+    "web development company Vadodara",
+    "digital solutions Visakhapatnam",
+    "SEO services Nashik",
+    "web development company Ludhiana",
+    "website design Agra",
+    "software company Surat",
+    "IT services Rajkot",
+    "web development company Kanpur",
+    "digital solutions Coimbatore",
+    "SEO services Madurai", 
+    "web development company Varanasi",
+    "website design Amritsar",
+    "software company Allahabad",
+    "IT services Jodhpur",
+    "web development company Mysore",
+    "digital solutions Dehradun",
+    "SEO services Raipur",
 
     // Business Keywords
     "grow business online",
