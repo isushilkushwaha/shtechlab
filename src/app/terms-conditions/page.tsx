@@ -8,19 +8,22 @@ export const metadata: Metadata = {
 
 export default function TermsPage() {
   return (
-    <main className="bg-black text-white min-h-screen py-20">
+    <main className="bg-slate-50 text-slate-800 min-h-screen py-20">
       <div className="max-w-4xl mx-auto px-6">
-        <h1 className="text-4xl font-bold mb-8">
-          Terms & Conditions
-        </h1>
+        {/* Header Section */}
+        <div className="border-l-4 border-blue-600 pl-4 mb-10">
+          <h1 className="text-4xl font-bold text-slate-900 tracking-tight mb-2">
+            Terms & Conditions
+          </h1>
+          <p className="text-sm text-zinc-500">
+            Last Updated: May 2026
+          </p>
+        </div>
 
-        <p className="text-zinc-400 mb-6">
-          Last Updated: May 2026
-        </p>
-
-        <div className="space-y-8 text-zinc-300 leading-8">
+        {/* Content Body */}
+        <div className="space-y-8 text-slate-700 leading-relaxed bg-white p-8 md:p-10 rounded-xl shadow-sm border border-slate-200">
           <section>
-            <h2 className="text-2xl font-semibold mb-3">
+            <h2 className="text-xl font-semibold text-slate-900 mb-3">
               Acceptance of Terms
             </h2>
             <p>
@@ -29,8 +32,10 @@ export default function TermsPage() {
             </p>
           </section>
 
+          <hr className="border-slate-100" />
+
           <section>
-            <h2 className="text-2xl font-semibold mb-3">
+            <h2 className="text-xl font-semibold text-slate-900 mb-3">
               Services
             </h2>
             <p>
@@ -39,8 +44,10 @@ export default function TermsPage() {
             </p>
           </section>
 
+          <hr className="border-slate-100" />
+
           <section>
-            <h2 className="text-2xl font-semibold mb-3">
+            <h2 className="text-xl font-semibold text-slate-900 mb-3">
               Payments
             </h2>
             <p>
@@ -49,8 +56,10 @@ export default function TermsPage() {
             </p>
           </section>
 
+          <hr className="border-slate-100" />
+
           <section>
-            <h2 className="text-2xl font-semibold mb-3">
+            <h2 className="text-xl font-semibold text-slate-900 mb-3">
               Intellectual Property
             </h2>
             <p>
@@ -59,8 +68,10 @@ export default function TermsPage() {
             </p>
           </section>
 
+          <hr className="border-slate-100" />
+
           <section>
-            <h2 className="text-2xl font-semibold mb-3">
+            <h2 className="text-xl font-semibold text-slate-900 mb-3">
               Limitation of Liability
             </h2>
             <p>
@@ -69,8 +80,10 @@ export default function TermsPage() {
             </p>
           </section>
 
+          <hr className="border-slate-100" />
+
           <section>
-            <h2 className="text-2xl font-semibold mb-3">
+            <h2 className="text-xl font-semibold text-slate-900 mb-3">
               Changes to Terms
             </h2>
             <p>

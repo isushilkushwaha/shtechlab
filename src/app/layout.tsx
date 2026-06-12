@@ -24,7 +24,7 @@ export const metadata: Metadata = {
   creator: defaultSEO.creator,
   metadataBase: new URL("https://shtechlab.in"),
   openGraph: {
-    title: defaultSEO.title,
+    title: defaultSEO.title.default,
     description: defaultSEO.description,
     url: "https://shtechlab.in",
     siteName: defaultSEO.siteName,
@@ -40,7 +40,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: defaultSEO.title,
+    title: defaultSEO.title.default,
     description: defaultSEO.description,
     images: ["/og.png"],
   },
@@ -56,6 +56,18 @@ export default function RootLayout({
       <body
         className={`${inter.variable} ${spaceGrotesk.variable} bg-white text-black antialiased`}
       >
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "WebSite",
+              "name": "SH Tech Lab",
+              "url": "https://shtechlab.in"
+            }),
+          }}
+        />
+
         <LayoutWrapper>
           <Toaster richColors position="top-right" />
           {children}
