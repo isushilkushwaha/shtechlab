@@ -5,6 +5,7 @@ import { Toaster } from "sonner";
 
 import { defaultSEO } from "@/lib/seo";
 import LayoutWrapper from "@/components/layout/LayoutWrapper";
+import WhatsAppButton from "@/components/sections/WhatsAppButton";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -71,6 +72,7 @@ export default function RootLayout({
         <LayoutWrapper>
           <Toaster richColors position="top-right" />
           {children}
+          <WhatsAppButton />
         </LayoutWrapper>
       </body>
     </html>
