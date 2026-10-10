@@ -7,9 +7,8 @@ import Link from "next/link";
 import { ArrowUpRight } from "lucide-react";
 
 import { services } from "@/lib/services";
-import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import { Playfair_Display } from "next/font/google";
+
 import { playfair } from "@/lib/fonts";
 
 

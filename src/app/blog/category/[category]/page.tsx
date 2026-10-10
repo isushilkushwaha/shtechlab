@@ -1,19 +1,23 @@
 type BlogPageProps = {
-  params: {
-    slug: string;
-  };
+  params: Promise<{
+    category: string;
+  }>;
 };
 
-export default function BlogPostPage({ params }: BlogPageProps) {
+export default async function BlogCategoryPage({
+  params,
+}: BlogPageProps) {
+  const { category } = await params;
+
   return (
     <main className="min-h-screen py-20">
       <div className="container mx-auto px-4">
-        <h1 className="text-4xl font-bold mb-4">
-          Blog: {params.slug}
+        <h1 className="mb-4 text-4xl font-bold">
+          Blog Category: {category}
         </h1>
 
         <p className="text-zinc-600">
-          This blog article is under development.
+          Blog articles in this category are under development.
         </p>
       </div>
     </main>
