@@ -1,9 +1,12 @@
+
+
 "use client";
 
 import { usePathname } from "next/navigation";
 
 import Header from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
+import WhatsAppButton from "@/components/sections/WhatsAppButton";
 
 export default function LayoutWrapper({
   children,
@@ -21,6 +24,8 @@ export default function LayoutWrapper({
       <main>{children}</main>
 
       {!isAdmin && <Footer />}
+
+      {!isAdmin && <WhatsAppButton />}
     </>
   );
 }
